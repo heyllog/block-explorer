@@ -54,6 +54,7 @@ export const ExplorerScreen: FC = () => {
     <TxsList
       txs={txs}
       style={StyleSheet.flatten([styles.container, { marginTop: insets.top, paddingBottom: insets.bottom }])}
+      isLoading={isLoadingInfo}
       refreshControl={
         <RefreshControl
           colors={[colors.text.main]}

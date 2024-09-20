@@ -9,10 +9,6 @@ import type { BlockInfo, TxInfo } from '../../types'
 const baseUrl = 'https://sepolia1.trezor.io/api'
 const client = axios.create({
   baseURL: baseUrl,
-  headers: {
-    'User-Agent':
-      'Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/114.0.0.0 Safari/537.36',
-  },
   timeout: 3000,
 })
 

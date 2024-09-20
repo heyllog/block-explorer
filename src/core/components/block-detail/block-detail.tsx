@@ -21,7 +21,7 @@ const Container: FC<ContainerProps> = ({ style, isWithoutDivider, ...props }) =>
 }
 
 const Key: FC<TextProps> = ({ style, ...props }) => {
-  return <AppText style={StyleSheet.flatten([styles.key, style])} {...props} />
+  return <AppText style={StyleSheet.flatten([styles.key, style])} ellipsizeMode='tail' numberOfLines={1} {...props} />
 }
 
 const Value: FC<TextProps> = ({ style, ...props }) => {
@@ -42,6 +42,7 @@ export const styles = StyleSheet.create({
     justifyContent: 'space-between',
   },
   key: {
+    maxWidth: '49%',
     fontFamily: fonts.titleFontFamily,
   },
   value: {

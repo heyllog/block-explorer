@@ -14,5 +14,5 @@ export const sizes = {
 
   // page
   pagePaddingVertical: 24,
-  pagePaddingHorizontal: 24,
+  pagePaddingHorizontal: 20,
 }

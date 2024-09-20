@@ -3,8 +3,8 @@ export const colors = {
     main: '#be3455',
   },
   background: {
-    main: '#0f172a',
-    block: '#1d222c',
+    block: '#242526',
+    main: '#1b1b1d',
   },
   text: {
     main: '#fff',
