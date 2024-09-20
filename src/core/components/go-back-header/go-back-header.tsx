@@ -17,7 +17,7 @@ export const GoBackHeader: FC<Props> = ({ title }) => {
 
   return (
     <View style={styles.header}>
-      <ActiveTouchAction onPress={navigation.goBack}>
+      <ActiveTouchAction onPress={navigation.goBack} hitSlop={5}>
         <OctIcon name='arrow-left' size={24} style={styles.backIcon} />
       </ActiveTouchAction>
 

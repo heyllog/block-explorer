@@ -1,10 +1,12 @@
 import { configureStore } from '@reduxjs/toolkit'
 
-import { explorerSlice } from 'features/explorer/store/slice'
+import { explorerSlice } from 'features/explorer'
+import { walletSlice } from 'features/wallet'
 
 export const store = configureStore({
   reducer: {
     explorer: explorerSlice.reducer,
+    wallet: walletSlice.reducer,
   },
 })
 

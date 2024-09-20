@@ -8,9 +8,10 @@ interface Props extends PropsWithChildren {
   onLongPress?: () => void
   style?: StyleProp<ViewStyle>
   disabled?: boolean
+  hitSlop?: number
 }
 
-export const ActiveTouchAction: FC<Props> = ({ onPress, onLongPress, style, disabled, children }) => {
+export const ActiveTouchAction: FC<Props> = ({ onPress, onLongPress, style, disabled, hitSlop, children }) => {
   const pressed = useSharedValue(false)
 
   const onTouchIn = (): void => {
@@ -32,6 +33,7 @@ export const ActiveTouchAction: FC<Props> = ({ onPress, onLongPress, style, disa
       onPress={onPress}
       onLongPress={onLongPress}
       disabled={disabled}
+      hitSlop={hitSlop}
     >
       <Animated.View style={[animatedStyles, style]}>{children}</Animated.View>
     </TouchableWithoutFeedback>

@@ -1,9 +1,9 @@
 export const sizes = {
-  baseIndent: 12,
+  baseIndent: 16,
 
   // block
   blockBorderRadius: 16,
-  blockPaddingVertical: 24,
+  blockPaddingVertical: 20,
   blockPaddingHorizontal: 20,
   dividerMargin: 12,
 
@@ -11,6 +11,11 @@ export const sizes = {
   buttonBorderRadius: 16,
   buttonPaddingVertical: 16,
   buttonPaddingHorizontal: 40,
+
+  // input
+  inputBorderRadius: 16,
+  inputPaddingVertical: 16,
+  inputPaddingHorizontal: 16,
 
   // page
   pagePaddingVertical: 24,

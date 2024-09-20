@@ -5,6 +5,7 @@ import OctIcon from 'react-native-vector-icons/Octicons'
 
 import { colors } from 'core/theme'
 import { ExplorerScreen } from 'features/explorer'
+import { WalletScreen } from 'features/wallet'
 
 type IconRenderer = (args: { focused: boolean; color: string; size: number }) => ReactNode
 
@@ -24,7 +25,15 @@ export const Tabs: FC = () => {
         name='Explorer'
         component={ExplorerScreen}
         options={{
-          tabBarLabel: 'Explorer',
+          tabBarIcon: renderIpTrackerIcon,
+          headerShown: false,
+        }}
+      />
+
+      <Tab.Screen
+        name='Wallet'
+        component={WalletScreen}
+        options={{
           tabBarIcon: renderIpTrackerIcon,
           headerShown: false,
         }}

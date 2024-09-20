@@ -17,7 +17,7 @@ export const fetchBlockInfo = async (): Promise<{ blockInfo: BlockInfo; txs: TxI
   const currentBlock = statusData?.blockbook?.bestHeight
 
   // to avoid api limitation
-  await sleep(500)
+  await sleep(1000)
 
   if (!currentBlock) {
     throw new Error('Cannot receive current block')
