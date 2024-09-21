@@ -50,10 +50,10 @@ export const GenerateAddress: FC<ViewProps> = (props) => {
       />
 
       <Button onPress={handleGenerate} style={styles.submitButton} disabled={isGeneratingAddress}>
-        {isGeneratingAddress ? 'Loading...' : 'Generate address'}
+        {isGeneratingAddress ? 'Loading...' : 'Log in'}
       </Button>
 
-      <Button onPress={handleSetDefault} theme='transparent' style={styles.defaultButton}>
+      <Button onPress={handleSetDefault} theme='transparent' style={styles.defaultButton} hitSlop={10}>
         <AppText style={styles.defaultButtonText}>Set default private key</AppText>
       </Button>
     </View>

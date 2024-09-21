@@ -26,10 +26,12 @@ export const SendForm: FC<ViewProps> = (props) => {
   const navigation = useNavigation<UseNavigationType>()
 
   const handleChangeAmount = (text: string): void => {
-    try {
-      parseEther(text)
+    const newAmount = text.replaceAll(',', '.')
 
-      setAmount(text)
+    try {
+      parseEther(newAmount)
+
+      setAmount(newAmount)
     } catch (e) {
       // filter incorrect amount
     }
@@ -67,7 +69,7 @@ export const SendForm: FC<ViewProps> = (props) => {
       <InputHeader isFilled={!!amount} onPaste={handleChangeAmount} onClear={(): void => setAmount('')}>
         Amount
       </InputHeader>
-      <AppTextInput style={styles.input} value={amount} onChangeText={handleChangeAmount} />
+      <AppTextInput style={styles.input} value={amount} onChangeText={handleChangeAmount} keyboardType='decimal-pad' />
 
       <Button onPress={handleSend} style={styles.submitButton} disabled={isSendingTx}>
         {isSendingTx ? 'Loading...' : 'Send'}

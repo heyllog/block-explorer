@@ -1,6 +1,6 @@
 import React, { FC, PropsWithChildren } from 'react'
 
-import { StyleProp, TouchableOpacityProps, TouchableWithoutFeedback, ViewStyle } from 'react-native'
+import { type Insets, StyleProp, TouchableOpacityProps, TouchableWithoutFeedback, ViewStyle } from 'react-native'
 import Animated, { useAnimatedStyle, useSharedValue, withTiming } from 'react-native-reanimated'
 
 interface Props extends PropsWithChildren {
@@ -8,7 +8,7 @@ interface Props extends PropsWithChildren {
   onLongPress?: () => void
   style?: StyleProp<ViewStyle>
   disabled?: boolean
-  hitSlop?: number
+  hitSlop?: number | Insets | null | undefined
 }
 
 export const ActiveTouchAction: FC<Props> = ({ onPress, onLongPress, style, disabled, hitSlop, children }) => {

@@ -60,8 +60,8 @@ export const AccountInfo: FC<ViewProps> = (props) => {
         Send ETH (Sepolia)
       </Button>
 
-      <Button onPress={handleResetAccount} theme='transparent' style={styles.defaultButton}>
-        <AppText style={styles.defaultButtonText}>Choose another private key</AppText>
+      <Button onPress={handleResetAccount} theme='transparent' style={styles.defaultButton} hitSlop={10}>
+        <AppText style={styles.defaultButtonText}>Log out</AppText>
       </Button>
     </View>
   )

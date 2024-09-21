@@ -24,7 +24,7 @@ export const styles = StyleSheet.create({
 
   // Transparent styles
   transparentButton: {
-    paddingVertical: 0,
+    paddingVertical: 6,
     paddingHorizontal: sizes.buttonPaddingHorizontal,
   },
   transparentButtonText: {
