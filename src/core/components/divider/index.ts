@@ -1,1 +1,1 @@
-export { Block } from 'components/block/block'
+export { Divider } from './divider'

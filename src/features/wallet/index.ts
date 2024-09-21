@@ -5,3 +5,5 @@ export { TxErrorScreen } from './screens/tx-error-screen'
 
 export { walletSlice } from './store/slice'
 export * from './store/selectors'
+
+export { publicClient } from './clients/public-client'

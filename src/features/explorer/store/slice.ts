@@ -1,7 +1,8 @@
 import { createSlice } from '@reduxjs/toolkit'
 
 import patchStateReducer from 'core/store/utils/patch-state'
-import type { BlockInfo, TxInfo } from 'features/explorer/types'
+
+import type { BlockInfo, TxInfo } from '../types'
 
 export interface ExplorerState {
   isLoadingInfo: boolean

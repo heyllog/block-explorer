@@ -20,8 +20,8 @@ export const BlockDetails: FC<Props> = ({ blockInfo, ...props }) => {
       </BlockDetail.Container>
 
       <BlockDetail.Container>
-        <BlockDetail.Key>Confirmations</BlockDetail.Key>
-        <BlockDetail.Value>{blockInfo.confirmations}</BlockDetail.Value>
+        <BlockDetail.Key>Hash</BlockDetail.Key>
+        <BlockDetail.Value>{blockInfo.hash}</BlockDetail.Value>
       </BlockDetail.Container>
 
       <BlockDetail.Container>

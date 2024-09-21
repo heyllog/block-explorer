@@ -50,7 +50,7 @@ export const Button: FC<PressableProps & ComponentProps> = ({
   return (
     <ActiveTouchAction
       onPress={handlePress}
-      style={[isFullwidth && styles.fullwidth, style as ViewStyle]}
+      style={[isFullwidth && styles.fullwidth, disabled && styles.disabledButton, style as ViewStyle]}
       disabled={disabled}
     >
       <View style={[styles.button, isFullwidth && styles.fullwidth]}>

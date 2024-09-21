@@ -1,7 +1,7 @@
 import React, { type FC, type ReactNode } from 'react'
 
 import { createBottomTabNavigator } from '@react-navigation/bottom-tabs'
-import OctIcon from 'react-native-vector-icons/Octicons'
+import Entypo from 'react-native-vector-icons/Entypo'
 
 import { colors } from 'core/theme'
 import { ExplorerScreen } from 'features/explorer'
@@ -9,7 +9,8 @@ import { WalletScreen } from 'features/wallet'
 
 type IconRenderer = (args: { focused: boolean; color: string; size: number }) => ReactNode
 
-const renderIpTrackerIcon: IconRenderer = ({ color, size }) => <OctIcon size={size} name='stack' color={color} />
+const renderExplorerIcon: IconRenderer = ({ color, size }) => <Entypo size={size} name='globe' color={color} />
+const renderWalletIcon: IconRenderer = ({ color, size }) => <Entypo size={size} name='wallet' color={color} />
 
 const Tab = createBottomTabNavigator()
 
@@ -19,14 +20,14 @@ export const Tabs: FC = () => {
       screenOptions={{
         tabBarActiveTintColor: colors.primary.main,
         tabBarStyle: { backgroundColor: colors.background.block },
+        headerShown: false,
       }}
     >
       <Tab.Screen
         name='Explorer'
         component={ExplorerScreen}
         options={{
-          tabBarIcon: renderIpTrackerIcon,
-          headerShown: false,
+          tabBarIcon: renderExplorerIcon,
         }}
       />
 
@@ -34,8 +35,7 @@ export const Tabs: FC = () => {
         name='Wallet'
         component={WalletScreen}
         options={{
-          tabBarIcon: renderIpTrackerIcon,
-          headerShown: false,
+          tabBarIcon: renderWalletIcon,
         }}
       />
     </Tab.Navigator>

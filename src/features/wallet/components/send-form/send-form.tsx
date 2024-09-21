@@ -9,12 +9,15 @@ import { Button } from 'core/components/button'
 import { AppTextInput } from 'core/components/input'
 import { InputHeader } from 'core/components/input-header'
 import type { UseNavigationType } from 'core/stacks/root'
-import { useAppDispatch } from 'core/store/hooks'
+import { useAppDispatch, useAppSelector } from 'core/store/hooks'
 import { colors, fonts, sizes } from 'core/theme'
 
 import { sendTx } from '../../store/actions/send-tx'
+import { selectSendState } from '../../store/selectors'
 
 export const SendForm: FC<ViewProps> = (props) => {
+  const { isSendingTx } = useAppSelector(selectSendState)
+
   const [addressTo, setAddressTo] = useState('')
   const [amount, setAmount] = useState('')
 
@@ -22,7 +25,7 @@ export const SendForm: FC<ViewProps> = (props) => {
   const toast = useToast()
   const navigation = useNavigation<UseNavigationType>()
 
-  const handleChangeAmount = (text: string) => {
+  const handleChangeAmount = (text: string): void => {
     try {
       parseEther(text)
 
@@ -59,15 +62,15 @@ export const SendForm: FC<ViewProps> = (props) => {
       <InputHeader isFilled={!!addressTo} onPaste={setAddressTo} onClear={(): void => setAddressTo('')}>
         To address
       </InputHeader>
-      <AppTextInput style={styles.input} value={addressTo} onChangeText={(text) => setAddressTo(text)} />
+      <AppTextInput style={styles.input} value={addressTo} onChangeText={(text): void => setAddressTo(text)} />
 
       <InputHeader isFilled={!!amount} onPaste={handleChangeAmount} onClear={(): void => setAmount('')}>
         Amount
       </InputHeader>
       <AppTextInput style={styles.input} value={amount} onChangeText={handleChangeAmount} />
 
-      <Button onPress={handleSend} style={styles.submitButton}>
-        Submit
+      <Button onPress={handleSend} style={styles.submitButton} disabled={isSendingTx}>
+        {isSendingTx ? 'Loading...' : 'Send'}
       </Button>
     </View>
   )

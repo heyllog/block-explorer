@@ -1,1 +1,1 @@
-export { TxSuccessScreen } from 'features/wallet/screens/tx-success-screen/tx-success-screen'
+export { TxSuccessScreen } from './tx-success-screen'

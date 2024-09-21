@@ -1,6 +1,6 @@
 import { createAsyncThunk } from '@reduxjs/toolkit'
 
-import { fetchBlockInfo } from '../../clients/trezor/client'
+import { fetchBlockInfo } from '../../clients/client'
 import { patchExplorerState } from '../slice'
 
 export const getCurrentBlockInfo = createAsyncThunk('explorer/get-current-block-info', async (_, thunkAPI) => {

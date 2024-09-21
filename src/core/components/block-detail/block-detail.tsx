@@ -2,7 +2,7 @@ import React, { FC } from 'react'
 
 import { StyleSheet, type TextProps, View, ViewProps } from 'react-native'
 
-import { Divider } from 'core/components/divider/divider'
+import { Divider } from 'core/components/divider'
 import { AppText } from 'core/components/text'
 import { fonts } from 'core/theme'
 

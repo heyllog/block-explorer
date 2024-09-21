@@ -8,7 +8,7 @@ import { ScreenWrapper } from 'core/components/screen-wrapper'
 import { AppText } from 'core/components/text'
 import { useAppSelector } from 'core/store/hooks'
 
-import { TxDetails } from '../../components/tx-details/tx-details'
+import { TxDetails } from '../../components/tx-details'
 import { selectExplorerState } from '../../store/selectors'
 import { hasHash } from '../../utils/has-hash'
 

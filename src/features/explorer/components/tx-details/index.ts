@@ -1,1 +1,1 @@
-export { BlockDetails } from 'features/explorer/components/block-details/block-details'
+export { TxDetails } from './tx-details'

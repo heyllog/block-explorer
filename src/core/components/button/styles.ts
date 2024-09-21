@@ -18,6 +18,9 @@ export const styles = StyleSheet.create({
     color: colors.text.main,
     textAlign: 'center',
   },
+  disabledButton: {
+    opacity: 0.7,
+  },
 
   // Transparent styles
   transparentButton: {
