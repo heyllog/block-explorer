@@ -11,8 +11,6 @@
     "podreinstall": "cd ./ios && pod deintegrate && pod cache clean -- all && pod install --repo-update && cd ../",
     "build-android": "cd ./android && ./gradlew clean && ./gradlew assembleRelease && cd ../",
     "build-android-bundle": "cd ./android && ./gradlew clean && ./gradlew bundleRelease && cd ../",
-    "build-android-debug": "yarn build-android && cp -R ./android/app/build/outputs/apk/release/app-release.apk ./build",
-    "build-android-release": "yarn build-android-bundle && cp -R ./android/app/build/outputs/bundle/release/app-release.aab ./build",
     "test": "jest"
   },
   "dependencies": {
