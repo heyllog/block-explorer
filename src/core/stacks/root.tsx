@@ -8,6 +8,7 @@ import { TxInfoScreen } from 'features/explorer'
 import { SendScreen, TxErrorScreen, TxSuccessScreen } from 'features/wallet'
 
 import { Tabs } from './tabs'
+import {colors} from "core/theme";
 
 export type RootStackParamList = {
   Tabs: undefined
@@ -32,6 +33,7 @@ export const RootStack = (): React.JSX.Element => {
         gestureEnabled: false,
         animation: Platform.OS === 'android' ? 'slide_from_right' : 'default',
         headerShown: false,
+        navigationBarColor: colors.background.block,
       }}
     >
       <Stack.Screen name='Tabs' component={Tabs} />

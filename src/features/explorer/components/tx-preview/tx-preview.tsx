@@ -47,6 +47,7 @@ TxPreview.displayName = 'TxPreview'
 const styles = StyleSheet.create({
   container: {
     alignItems: 'center',
+    height: 30,
   },
   key: {
     maxWidth: '50%',

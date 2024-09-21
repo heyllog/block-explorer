@@ -30,5 +30,7 @@ export const getCurrentBlockInfo = createAsyncThunk('explorer/get-current-block-
         isFailedLoadInfo: true,
       }),
     )
+
+    throw e
   }
 })

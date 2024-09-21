@@ -1,7 +1,8 @@
-import { FC, useEffect } from 'react'
+import { FC, useEffect, useState } from 'react'
 
 import { RefreshControl, StyleSheet, View } from 'react-native'
 import { useSafeAreaInsets } from 'react-native-safe-area-context'
+import { useToast } from 'react-native-toast-notifications'
 
 import { Button } from 'core/components/button'
 import { LoaderCircle } from 'core/components/loader-circle'
@@ -15,20 +16,32 @@ import { getCurrentBlockInfo } from '../../store/actions/get-current-block-info'
 import { selectExplorerState } from '../../store/selectors'
 
 export const ExplorerScreen: FC = () => {
+  const [isLoadedOnce, setIsLoadedOnce] = useState(false)
   const { blockInfo, txs, isLoadingInfo, isFailedLoadInfo } = useAppSelector(selectExplorerState)
 
   const insets = useSafeAreaInsets()
   const dispatch = useAppDispatch()
+  const toast = useToast()
 
   const handleUpdateBlockInfo = async (): Promise<void> => {
-    await dispatch(getCurrentBlockInfo())
+    try {
+      await dispatch(getCurrentBlockInfo()).unwrap()
+    } catch (e) {
+      if (isLoadedOnce) {
+        toast.show('Unable to fetch data', { type: 'danger' })
+      }
+    }
   }
 
   useEffect(() => {
     void dispatch(getCurrentBlockInfo())
   }, [dispatch])
 
-  if (isLoadingInfo && !blockInfo && !txs) {
+  useEffect(() => {
+    if (txs || blockInfo) setIsLoadedOnce(true)
+  }, [txs, blockInfo])
+
+  if (isLoadingInfo && !isLoadedOnce) {
     return (
       <View style={styles.loaderContainer}>
         <LoaderCircle />
@@ -37,7 +50,7 @@ export const ExplorerScreen: FC = () => {
     )
   }
 
-  if (isFailedLoadInfo) {
+  if (isFailedLoadInfo && !isLoadedOnce) {
     return (
       <View style={styles.loaderContainer}>
         <AppTitle>Cannot get current block</AppTitle>
@@ -57,7 +70,7 @@ export const ExplorerScreen: FC = () => {
       isLoading={isLoadingInfo}
       refreshControl={
         <RefreshControl
-          colors={[colors.text.main]}
+          colors={[colors.background.main]}
           tintColor={colors.text.main}
           refreshing={isLoadingInfo}
           onRefresh={handleUpdateBlockInfo}
